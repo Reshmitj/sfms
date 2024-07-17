@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>Expenses</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let expense of expenses">
+        <span>{{expense.description}} - {{expense.amount | currency}} - {{expense.category}}</span>
+        <button mat-button color="warn" (click)="deleteExpense(expense.id)">Delete</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field>
+      <input matInput placeholder="Description" #expenseDescription>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Amount" #expenseAmount>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Category" #expenseCategory>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addExpense(expenseDescription.value, expenseAmount.value, expenseCategory.value)">Add Expense</button>
+  </mat-card-content>
+</mat-card>

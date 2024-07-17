@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Budgets</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let budget of budgets">
+        <span>{{budget.name}} - {{budget.amount | currency}}</span>
+        <button mat-button color="warn" (click)="deleteBudget(budget.id)">Delete</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field>
+      <input matInput placeholder="Budget Name" #budgetName>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Amount" #budgetAmount>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addBudget(budgetName.value, budgetAmount.value)">Add Budget</button>
+  </mat-card-content>
+</mat-card>
